@@ -1,0 +1,8 @@
+<h1>Surveys</h1>
+<p>Welcome to the sample survey interface. Click below for available surveys for you.</p>
+<ul>
+  <% @surveys.each do |survey| %>
+    <li><%= link_to survey.title, survey_path(survey) %></li>
+  <% end %>
+</ul>
+

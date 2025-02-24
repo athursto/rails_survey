@@ -1,0 +1,11 @@
+<h1><%= @survey.title %></h1>
+
+<% if @first_section %>
+  <p>Click below to begin the survey:</p>
+  <%= link_to "Start Survey", survey_section_path(@survey, @first_section), class: "btn btn-primary" %>
+<% else %>
+  <p>No sections available for this survey.</p>
+<% end %>
+
+
+<%= link_to "Back to Surveys", surveys_path, class: "btn btn-secondary" %>

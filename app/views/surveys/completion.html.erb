@@ -1,0 +1,15 @@
+<h2>Survey Completed!</h2>
+<p>Thank you for completing the survey. Enter your email below to receive your gift card.</p>
+
+<%= form_with url: submit_email_path(@survey), method: :post, local: true do |f| %>
+  <div>
+    <%= f.label :email, "Your Email:" %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <%= f.submit "Submit Email" %>
+<% end %>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
