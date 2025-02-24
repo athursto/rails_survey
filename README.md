@@ -27,6 +27,11 @@ $ rails s #to start the datbaase
 ```
 
 
-#TODO
-* Deployment instructions
+Deployment
+
+Currently, the database runs by default on localhost:3000 . Deploying requires
+- downloading this git folder
+- downloading Rails
+- Navigate to the folder that contains the git folder
+- following the database creation steps above  
 
