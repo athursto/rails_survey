@@ -1,53 +1,3 @@
-<!--<h1><%#= @section.title %></h1>-->
-
-<%#= form_with url: survey_section_responses_path(@section.survey, @section), method: :post do |f| %>
-  <%# @section.questions.each do |question| %>
-    <%# if question.info? %>
-<!--      <div class="info-box">-->
-<!--        <p><%#= question.content %></p>-->
-<!--      </div>-->
-      <%#= link_to "Continue", survey_section_path(@section.survey, @next_section), class: "btn btn-primary" %>
-    <%# else %>
-<!--      <div>-->
-<!--        <p><strong><%#= question.content %></strong></p>-->
-
-        <%# response = @responses.find { |r| r.question_id == question.id } %>
-        <%# case question.question_type %>
-        <%# when 'text' %>
-            <%#= f.text_area :answer, name: "responses[#{question.id}]", class: "form-control", rows: 4 %>
-
-
-        <%# when 'multiple_choice' %>
-                <%# question.options.each do |option| %>
-<!--                  <div>-->
-                    <%#= f.radio_button "responses[#{question.id}][answer]", option.content, id: "question_#{question.id}_option_#{option.id}" %>
-                    <%#= label_tag "question_#{question.id}_option_#{option.id}", option.content %>
-<!--                  </div>-->
-                <%# end %>
-
-        <%# when 'checkbox' %>
-                <%# question.options.each do |option| %>
-<!--                  <div>-->
-                    <%#= f.check_box "responses[#{question.id}][answer][]", { multiple: true }, option.content, nil, id: "question_#{question.id}_option_#{option.id}" %>
-                    <%#= label_tag "question_#{question.id}_option_#{option.id}", option.content %>
-<!--                  </div>-->
-          <%# end %>
-
-        <%# when 'date' %>
-                  <%#= f.date_field "responses[#{question.id}][answer]", class: "form-control" %>
-                  <%# end %>
-<!--      </div>-->
-    <%# end %>
-
-  <%# end %>
-  <%#= f.submit "Next Section", class: "btn btn-primary" %>
-<%# end %>
-
-<%# if @next_section %>
-  <%#= link_to "Next Section", survey_section_path(@section.survey, @next_section), class: "btn btn-secondary" %>
-<%# end %>
-
-<%#= link_to 'Back to Home', survey_path(@section.survey), class: "btn btn-link" %>
 <h1><%= @section.title %></h1>
 <% info_only_section = @section.questions.all?(&:info?) %>
 <%= form_with url: survey_section_responses_path(@section.survey, @section), method: :post do |f| %>
@@ -65,7 +15,7 @@
         <% response = @responses.find { |r| r.question_id == question.id } %>
         <% case question.question_type %>
         <% when 'text' %>
-          <%= f.text_area :answer, name: "responses[#{question.id}]", class: "form-control", rows: 4 %>
+          <%= f.text_area :answer, name: "responses[#{question.id}]", class: "input", rows: 10 %>
 
 
         <% when 'multiple_choice' %>
@@ -92,7 +42,9 @@
   <% end %>
 
   <% unless info_only_section %>
-    <%= f.submit "Next Section", class: "btn btn-primary" %>
+    <div class="flex items-center">
+    <%= f.submit "Next Section", class:"btn btn--primary"%>
+    </div>
   <% end %>
 <% end %>
 

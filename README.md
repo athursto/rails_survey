@@ -23,7 +23,7 @@ Future improvements
 ```shell
 $ bundle install
 $ rails db:seed #The survey is built in the seed data
-$ rails s #to start the datbaase
+$ rails s #to start the database
 ```
 
 
