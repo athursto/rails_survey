@@ -34,7 +34,7 @@ material_security_question = section2.questions.create!(
   options_attributes: [
     { content: "Yes" },
     { content: "No" },
-    { content: "I choose not to answer" },
+    { content: "I choose not to answer" }
   ]
 )
 
@@ -48,7 +48,7 @@ housing_question = section4.questions.create!(
   question_type: Question.question_types[:text]
 )
 
-#adding in some branching rules
+# adding in some branching rules
 BranchingRule.create!(question: material_security_question, answer: "Yes", next_section: section3)
 BranchingRule.create!(question: material_security_question, answer: "No", next_section: section4)
 BranchingRule.create!(question: material_security_question, answer: "I choose not to answer", next_section: section4)

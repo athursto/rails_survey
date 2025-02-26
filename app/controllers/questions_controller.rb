@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @section = Section.find(params[:section_id])
     @question = @section.questions.build(question_params)
     if @question.save
-      redirect_to section_path(@section), notice: 'Question added successfully!'
+      redirect_to section_path(@section), notice: "Question added successfully!"
     else
       render :new
     end
@@ -17,6 +17,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:content, :question_type, options_attributes: [:content])
+    params.require(:question).permit(:content, :question_type, options_attributes: [ :content ])
   end
 end

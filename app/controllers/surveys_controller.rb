@@ -38,7 +38,7 @@ class SurveysController < ApplicationController
 
     if @user.update(email: params[:email])
       flash[:notice] = "Thank you! You will receive an email shortly."
-      #TODO not actually sending emails yet-- can do that with https://guides.rubyonrails.org/action_mailer_basics.html
+      # TODO not actually sending emails yet-- can do that with https://guides.rubyonrails.org/action_mailer_basics.html
       redirect_to root_path
     else
       flash[:alert] = "Error submitting your email."

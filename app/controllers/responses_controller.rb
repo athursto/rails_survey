@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
       question = Question.find(question_id)
       next if question.info? # Skip info box questions
       Response.create!(
-        question_id: question_id.to_i, #Making sure question id is an integer
+        question_id: question_id.to_i, # Making sure question id is an integer
         user_id: user_id, # Now using an integer user ID
         answer: response_data["answer"].to_s.strip.downcase
       )
@@ -17,15 +17,14 @@ class ResponsesController < ApplicationController
 
     next_section = determine_next_section
     if next_section
-      redirect_to survey_section_path(params[:survey_id], next_section), notice: 'Proceed to next section.'
+      redirect_to survey_section_path(params[:survey_id], next_section), notice: "Proceed to next section."
     else
-      redirect_to survey_completion_path(params[:survey_id]), notice: 'Survey completed! Enter your email for a gift card.'
+      redirect_to survey_completion_path(params[:survey_id]), notice: "Survey completed! Enter your email for a gift card."
     end
   rescue ActiveRecord::RecordInvalid => e
     redirect_back fallback_location: root_path, alert: "Error submitting responses: #{e.message}"
   end
-
-  end
+end
   private
 
   def responses_params
@@ -57,12 +56,10 @@ end
 
 def find_or_create_user_id
   if session[:user_id] && User.exists?(session[:user_id])
-    return session[:user_id]
+    session[:user_id]
   else
     user = User.create
     session[:user_id] = user.id
-    return user.id
+    user.id
   end
 end
-
-
