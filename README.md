@@ -13,7 +13,7 @@ Future improvements
 - Currently, a user has a session and ID based on a browser cookie. Authentication can be added in the future for users who may be on the same machine.
 - Currently, survey data is hardcoded in seeds.rb. Future iterations may warrant a more dynamic creation UI. 
 
-* System dependencies
+System dependencies
   - Currently, this application requires a modern browser.
 
 #TODO

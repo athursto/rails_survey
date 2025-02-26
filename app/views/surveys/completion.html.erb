@@ -4,10 +4,10 @@
 <%= form_with url: submit_email_path(@survey), method: :post, local: true do |f| %>
   <div>
     <%= f.label :email, "Your Email:" %>
-    <%= f.email_field :email, required: true %>
+    <%= f.email_field :email, class: "input", required: true %>
   </div>
 
-  <%= f.submit "Submit Email" %>
+  <%= f.submit "Submit Email",  class:"btn btn--primary" %>
 <% end %>
 
 <% if flash[:alert] %>
